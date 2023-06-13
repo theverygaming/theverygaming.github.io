@@ -39,6 +39,7 @@ jobs:
       - name: Build site
         run: |
          python3 insert.py
+         rm -rf "_site${{ steps.pages.outputs.base_path }}"/*
          cp -a output/. "_site${{ steps.pages.outputs.base_path }}"
 
       - name: Upload site artifact
