@@ -37,10 +37,11 @@ jobs:
         uses: actions/configure-pages@v1
 
       - name: Build site
+        shell: bash
         run: |
          #python3 insert.py
          rm -rf "_site${{ steps.pages.outputs.base_path }}"/*
-         echo "<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; URL=https://theverygaming.furrypri.de/"></head><body><p>You should be redirected. If not, <a href="https://theverygaming.furrypri.de/">click here</a>.</p></body></html>" > "_site${{ steps.pages.outputs.base_path }}"/index.html
+         echo \<\!DOCTYPE html\>\<html\>\<head\>\<meta http-equiv=\"refresh\" content=\"0\; URL=https://theverygaming.furrypri.de/\"\>\</head\>\<body\>\<p\>You should be redirected. If not, \<a href=\"https://theverygaming.furrypri.de/\"\>click here\</a\>.\</p\>\</body\>\</html\> > "_site${{ steps.pages.outputs.base_path }}"/index.html
          #cp -a output/. "_site${{ steps.pages.outputs.base_path }}"
 
       - name: Upload site artifact
